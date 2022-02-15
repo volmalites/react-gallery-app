@@ -57,7 +57,6 @@ class App extends React.Component {
             title: img.title
           }
         });
-          console.log(images.length);
         this.setState({
           images: images,
           result: (images.length > 0) ? false : <NotFound /> // Component to render when no results are found
