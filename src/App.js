@@ -52,10 +52,15 @@ class App extends React.Component {
         }
       }).then(res => {
         const photos = res.data.photos.photo;
-        let images = photos.map(img => `https://farm5.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`);
+        let images = photos.map(img => {
+          return {
+            url: `https://farm5.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`,
+            title: img.title
+          }
+        });
         this.setState({
           images: images,
-          result: this.state.images.length ? false : <NotFound /> // Component to render when no results are found
+          result: (this.state.images.length === 0) ? false : <NotFound /> // Component to render when no results are found
         });
       }).catch(error => {
         console.log(error);

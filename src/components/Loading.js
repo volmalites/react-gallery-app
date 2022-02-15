@@ -1,6 +1,7 @@
 /**
 * Animated loading spinner made with css
 **/
+import React from 'react';
 import '../loader.css';
 
 const Loading = () => {
