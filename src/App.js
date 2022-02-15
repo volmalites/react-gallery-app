@@ -3,7 +3,6 @@ import axios from 'axios';
 import apiKey from './config'; // File containing the Flickr key
 
 //App Components
-
 import Search from './components/Search';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer';
@@ -58,9 +57,10 @@ class App extends React.Component {
             title: img.title
           }
         });
+          console.log(images.length);
         this.setState({
           images: images,
-          result: (this.state.images.length === 0) ? false : <NotFound /> // Component to render when no results are found
+          result: (images.length > 0) ? false : <NotFound /> // Component to render when no results are found
         });
       }).catch(error => {
         console.log(error);
